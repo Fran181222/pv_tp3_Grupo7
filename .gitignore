@@ -11,6 +11,10 @@ node_modules
 dist
 dist-ssr
 *.local
+Appd.jsx
+Appd.css
+TaskItemd.jsx
+TaskListd.jsx
 
 # Editor directories and files
 .vscode/*
