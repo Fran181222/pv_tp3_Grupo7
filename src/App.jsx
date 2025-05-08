@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import TaskInput from './components/TaskInput.jsx';
+import TaskList from './components/TaskList.jsx'; // Importa el componente TaskList
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [tasks, setTasks] = useState([]);
+
+  const handleAddTask = (taskText) => {
+    const newTask = {
+      id: Date.now(),
+      text: taskText,
+      completed: false,
+    };
+    setTasks([...tasks, newTask]);
+    console.log('Tarea agregada:', newTask);
+  };
+
+  const handleCompleteTask = (taskId) => {
+    const updatedTasks = tasks.map(task => {
+      if (task.id === taskId) {
+        return { ...task, completed: true };
+      }
+      return task;
+    });
+    setTasks(updatedTasks);
+    console.log(`Tarea con ID ${taskId} marcada como realizada en App`);
+  };
+
+  const handleDeleteTask = (taskId) => {
+    // Creamos un nuevo array de tareas que contiene todas las tareas
+    // excepto la que tiene el ID que recibimos.
+    const updatedTasks = tasks.filter(task => task.id !== taskId);
+    // Actualizamos el estado 'tasks' con este nuevo array filtrado.
+    setTasks(updatedTasks);
+    console.log(`Tarea con ID ${taskId} eliminada en App`);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <h1>Mi Lista de Tareas</h1>
+      <TaskInput onAddTask={handleAddTask} />
+      {/* Ahora le pasamos la función handleCompleteTask a TaskList */}
+      <TaskList tasks={tasks} onCompleteTask={handleCompleteTask} onDeleteTask={handleDeleteTask}/>
+    </div>
+  );
 }
 
-export default App
+export default App;
