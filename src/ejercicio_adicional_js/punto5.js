@@ -6,4 +6,4 @@ const productos = [
     {descripcion: "Parlante", precio: 15000},
 ]
 
-productos.push({descripcion: "Celular", precio: 80000});
+productos.push({descripcion: "Parlante", precio: 59000.90});
