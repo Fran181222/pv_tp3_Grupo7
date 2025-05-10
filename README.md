@@ -8,4 +8,5 @@ Desarrollo trabajo práctico n° 3
 4. Gabriel Ignacio Roel - usuario: GabrielGIR
 5. Brian Llanos - usuario: BrianLlanos1001
 
-El proyecto es un ejercicio de practica para que los alumnos puedan aprender a familiarizar con React, props, hooks, entender los conceptos claves, de estructura bàsica y otros componentes como useState, el desafìo es crear una aplicaciòn que permita al usuario manejar tareas con funciones para listar, agregar, renderizar y eliminar. Los alumnos ademàs deberàn realizar unos ejercicios adicionales para trabajar con los array
+## Descripciòn del proyecto
+Proyecto práctico para aprender React (props, hooks, componentes) mediante un gestor de tareas con CRUD básico. Los alumnos implementarán funciones para listar, agregar, renderizar y eliminar tareas, además de ejercicios complementarios con arrays para reforzar conceptos clave.
